@@ -31,6 +31,6 @@ jobs:
         run: npm --no-git-tag-version version  from-git
 
       - name: Publish to NPM
-        run: npm publish — access public
+        run: npm publish
         env:
          NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
