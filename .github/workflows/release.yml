@@ -17,6 +17,12 @@ jobs:
       
       - name: Install modules
         run: yarn install
+        
+      # Bump package version
+      # Use tag latest
+      - name: Bump release version
+        if: startsWith(github.event.inputs.release-type, 'pre') != true
+        run: npm --no-git-tag-version version  from-git
 
       - name: Publish to NPM
         run: npm publish — access public
