@@ -18,10 +18,15 @@ jobs:
       - name: Install modules
         run: npm install
         
+      - name: Stash 
+        run: git stash
       # Bump package version
       # Use tag latest
       - name: Bump release version
-        run: npm --no-git-tag-version -f version  from-git
+        run: npm --no-git-tag-version version  from-git
+        
+      - name: Pop
+        run: git pop
 
       - name: Publish to NPM
         run: npm publish — access public
