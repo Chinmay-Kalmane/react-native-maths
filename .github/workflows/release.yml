@@ -21,7 +21,7 @@ jobs:
       # Bump package version
       # Use tag latest
       - name: Bump release version
-        run: npm --no-git-tag-version version  from-git
+        run: npm --no-git-tag-version -f version  from-git
 
       - name: Publish to NPM
         run: npm publish — access public
