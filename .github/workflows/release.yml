@@ -16,7 +16,7 @@ jobs:
           registry-url: https://registry.npmjs.org/
       
       - name: Install modules
-        run: yarn install
+        run: npm install
         
       # Bump package version
       # Use tag latest
