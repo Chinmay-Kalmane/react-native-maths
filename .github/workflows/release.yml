@@ -29,6 +29,11 @@ jobs:
       # Use tag latest
       - name: Bump release version
         run: npm --no-git-tag-version version  from-git
+        
+      - name: Commit Files
+        run: |
+          git add "package.json"
+          git commit -m "Updated `package.json` with new release version"
 
       - name: Publish to NPM
         run: npm publish
