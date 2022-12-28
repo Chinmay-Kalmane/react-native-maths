@@ -29,10 +29,11 @@ jobs:
         
       - name: Commit Files
         run: |
-          git status
           git config --global user.name "Chinmay-Kalmane"
           git config --global user.email "kalmane3101@gmail.com"
           git add "package.json"
+          git add "package-lock.json"
+          git status
           git commit -m "Updated `package.json` with new release version"
           git push
         env:
