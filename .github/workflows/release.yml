@@ -35,7 +35,8 @@ jobs:
           git add "package-lock.json"
           git status
           git commit -m "Updated `package.json` with new release version"
-          git push
+          git status
+          git push origin HEAD:<name-of-remote-branch>
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
