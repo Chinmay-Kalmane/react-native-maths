@@ -38,10 +38,11 @@ jobs:
           git status
           git commit -m "Updated `package.json` with new release version"
           git status
-          git checkout main
-          git merge release-${{  github.ref_name }}
-          git log --oneline
           git push origin main
+#          git checkout main
+#           git merge release-${{  github.ref_name }}
+#          git log --oneline
+          
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
