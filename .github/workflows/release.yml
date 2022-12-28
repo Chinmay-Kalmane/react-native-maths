@@ -27,26 +27,28 @@ jobs:
       - name: Bump release version
         run: npm --no-git-tag-version version  from-git
         
-      - name: Commit Files
+      - name: Checkout Release Branch
         run: |
-          echo "${{ github.event.release.target_commitish }}"
           git config --global user.name "Chinmay-Kalmane"
           git config --global user.email "kalmane3101@gmail.com"
           git checkout -b release-${{  github.ref_name }}
           git branch
+          
+      - name: Commit files and push 
+        run: |
           git add "package.json"
           git add "package-lock.json"
           git status
           git commit -m "Updated `package.json` with new release version"
-          git status
           git push --set-upstream origin release-${{  github.ref_name }}
-          git checkout ${{ github.event.release.target_commitish }}
+          
+      - name: Merge to main and push
+        run: |
+          git fetch
+          git checkout main
           git merge release-${{  github.ref_name }}
-          git log --oneline
           git push
-#          git checkout main
-#           git merge release-${{  github.ref_name }}
-#          git log --oneline
+          git log --oneline
           
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
