@@ -14,9 +14,6 @@ jobs:
         with:
           node-version: 19
           registry-url: https://registry.npmjs.org/
-      
-      - name: Install modules
-        run: npm install
         
       - name: GitHub Tag Name example
         run: |
