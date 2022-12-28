@@ -29,6 +29,7 @@ jobs:
         
       - name: Commit Files
         run: |
+          echo github.event.release.target_commitish
           git config --global user.name "Chinmay-Kalmane"
           git config --global user.email "kalmane3101@gmail.com"
           git checkout -b release-${{  github.ref_name }}
