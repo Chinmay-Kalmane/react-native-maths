@@ -40,10 +40,10 @@ jobs:
           git commit -m "Updated `package.json` with new release version"
           git status
           git push --set-upstream origin release-${{  github.ref_name }}
-          git fetch
-          git checkout main
+          git checkout ${{ github.event.release.target_commitish }}
           git merge release-${{  github.ref_name }}
           git log --oneline
+          git push
 #          git checkout main
 #           git merge release-${{  github.ref_name }}
 #          git log --oneline
