@@ -1,0 +1,14 @@
+name: Git Example
+on: workflow_dispatch
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Commit Files
+        run: |
+          git branch
+          git config --global user.name "Chinmay-Kalmane"
+          git config --global user.email "kalmane3101@gmail.com"
+          git checkout main
